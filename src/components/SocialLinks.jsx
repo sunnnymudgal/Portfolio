@@ -19,52 +19,42 @@ function SocialLinkCard({ Icon, link, msg }) {
 
 function SocialLinks() {
   return (
-    <div className="bg-[#EDF2FC] pt-10">
-      <div className="text-2xl px-[5vh] sm:text-2xl md:text-3xl sm:px-[8vh] md:px-[10vh] lg:px-[12vh] xl:px-[15vh] lg:text-4xl w-full flex py-[3vh] gap-6 rounded-3xl bg-[#EDF2FC] text-[#474849]">
+    <div className="bg-[#edf2fc00]">
+      <div className="text-4xl  sm:text-4xl md:text-5xl  lg:text-5xl w-full flex flex-col py-[3vh] gap-6 rounded-3xl bg-[#edf2fc00] text-[#474849]">
         {/* Using the reusable SocialLinkCard */}
         <motion.div
-          initial={{ x: -1000 }}
+          initial={{ x: 1000 }}
           animate={{ x: 0 }}
-          transition={{ duration: 0.8, ease: "easeIn", delay: 0.8 }}
+          transition={{ duration: 0.8, ease: "easeIn", delay: 0.6 }}
         >
           <SocialLinkCard
             Icon={IoLogoLinkedin}
-            msg="LinkedIn"
             link="https://www.linkedin.com/in/sunny-mudgal/"
           />
         </motion.div>
         <motion.div
-          initial={{ x: -1000 }}
+          initial={{ x: 1000 }}
           animate={{ x: 0 }}
           transition={{ duration: 0.8, ease: "easeIn", delay: 0.6 }}
         >
           <SocialLinkCard
             Icon={FaSquareGithub}
-            msg="Git Hub"
             link="https://github.com/sunnnymudgal"
           />
         </motion.div>
         <motion.div
-          initial={{ x: -1000 }}
+          initial={{ x: 1000 }}
           animate={{ x: 0 }}
-          transition={{ duration: 0.8, ease: "easeIn", delay: 0.4 }}
+          transition={{ duration: 0.8, ease: "easeIn", delay: 0.6 }}
         >
-          <SocialLinkCard
-            msg="Twitter"
-            Icon={FaXTwitter}
-            link="https://x.com/sunnnymudgal"
-          />
+          <SocialLinkCard Icon={FaXTwitter} link="https://x.com/sunnnymudgal" />
         </motion.div>
         <motion.div
-          initial={{ x: -1000 }}
+          initial={{ x: 1000 }}
           animate={{ x: 0 }}
-          transition={{ duration: 0.8, ease: "easeIn", delay: 0.2 }}
+          transition={{ duration: 0.8, ease: "easeIn", delay: 0.6 }}
         >
-          <SocialLinkCard
-            msg="Send Mail"
-            Icon={SiGmail}
-            link="mailto:sunnyxmudgal@gmail.com"
-          />
+          <SocialLinkCard Icon={SiGmail} link="mailto:sunnyxmudgal@gmail.com" />
         </motion.div>
       </div>
     </div>

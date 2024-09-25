@@ -1,87 +1,87 @@
-import React, { useState } from "react";
-import { HiOutlineMenuAlt4 } from "react-icons/hi";
-import { RxCross1 } from "react-icons/rx";
-import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 function Navbar() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const toggleVisibility = () => {
-    setIsVisible(!isVisible);
-  };
-
   return (
-    <div className="navbar w-full h-fit flex items-center justify-end px-10 py-8">
-      <div className="navChild  text-[#606163] h-6 flex z-10 items-center font-bold text-[1rem] lg:text-[1.2rem] justify-evenly 2xl:w-[40%] xl:w-[38%] lg:w-[38%] md:w-[45%] sm:w-[50%] max-sm:hidden">
-        <div className="group gap-2 cursor-pointer flex items-center flex-col justify-center">
-          <div className="cursor-pointer">
-            <Link to="/">HOME</Link>
-          </div>
-          <div className="h-[1px] w-0 group-hover:w-[140%] transform ease-in-out duration-200 bg-black"></div>
-        </div>
-        <div className="group gap-2 cursor-pointer flex items-center flex-col justify-center">
-          <div className="cursor-pointer">
-            <Link to="/projects">PROJECTS</Link>
-          </div>
-          <div className="h-[1px] w-0 group-hover:w-[140%] transform ease-in-out duration-200 bg-black"></div>
-        </div>
-      </div>
-      <div className="relative">
-        <div
-          className="sm:hidden h-6  flex items-center justify-center text-4xl"
-          onClick={toggleVisibility}
-        >
-          {isVisible ? (
-            <RxCross1 className="block mt-4 z-20" />
-          ) : (
-            <HiOutlineMenuAlt4 className="block mt-4" />
-          )}
-        </div>
-
-        <AnimatePresence>
-          {isVisible && (
-            <motion.div
-              initial={{ opacity: 1, y: -60 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -60 }}
-              transition={{ duration: 0.1 }}
-              className="shadow-lg border-y-8 border-[#4f4949] navDiv text-2xl text-[#EDF2FC] z-10 font-mono bg-[#BB1B2C] top-[-8px] right-[-15px]  px-6 py-16 flex flex-col gap-8 rounded-3xl absolute h-fit w-52"
-            >
-              <Link to="/">
-                <motion.div
-                  className="cursor-pointer"
-                  whileHover={{ scale: 0.9 }}
-                >
-                  HOME
-                </motion.div>
-              </Link>
-              <Link to="/projects">
-                <motion.div
-                  className="cursor-pointer"
-                  whileHover={{ scale: 0.9 }}
-                >
-                  PROJECTS
-                </motion.div>
-              </Link>
-              <a
-                target="_blank"
-                href="mailto:sunnyxmudgal@gmail.com"
-                rel="noopener noreferrer"
-              >
-                <motion.div
-                  className="cursor-pointer"
-                  whileHover={{ scale: 0.9 }}
-                >
-                  Send Mail
-                </motion.div>
-              </a>
-            </motion.div>
-          )}
-        </AnimatePresence>
+    <div className="w-[100vw] justify-center flex items-center z-[9999]">
+      <div className="bg-[#EDF2FC] rounded-full fixed top-3 z-[9999] shadow-lg">
+        <SlideTabs />
       </div>
     </div>
   );
 }
+
+const SlideTabs = () => {
+  const [position, setPosition] = useState({
+    left: 0,
+    width: 0,
+    opacity: 0,
+  });
+
+  return (
+    <ul
+      onMouseLeave={() => {
+        setPosition((pv) => ({
+          ...pv,
+          opacity: 0,
+        }));
+      }}
+      className="relative mx-auto flex w-fit rounded-full border-2 border-[#0f3357c5] bg-[#EDF2FC] p-1 shadow-lg z-[9999]"
+    >
+      <a href="#home">
+        <Tab setPosition={setPosition}>Home</Tab>
+      </a>
+      <a href="#aboutme">
+        <Tab setPosition={setPosition}>ABOUT ME</Tab>
+      </a>
+      <a href="#skills">
+        <Tab setPosition={setPosition}>SKILLS</Tab>
+      </a>
+      <a href="#projects">
+        <Tab setPosition={setPosition}>PROJECTS</Tab>
+      </a>
+
+      <Cursor position={position} />
+    </ul>
+  );
+};
+
+const Tab = ({ children, setPosition }) => {
+  const ref = useRef(null);
+
+  return (
+    <li
+      ref={ref}
+      onMouseEnter={() => {
+        if (!ref?.current) return;
+
+        const { width } = ref.current.getBoundingClientRect();
+
+        setPosition({
+          left: ref.current.offsetLeft,
+          width,
+          opacity: 1,
+        });
+      }}
+      className="relative z-[9999] block cursor-pointer px-3 py-1.5 text-xs font-bold uppercase text-black hover:text-neutral-500 md:px-5 md:py-1 md:text-base"
+    >
+      {children}
+    </li>
+  );
+};
+
+const Cursor = ({ position }) => {
+  return (
+    <motion.li
+      animate={position}
+      transition={{
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+      }}
+      className="absolute z-[9998] h-7 w-auto rounded-full bg-[#000000] md:h-8"
+    />
+  );
+};
 
 export default Navbar;

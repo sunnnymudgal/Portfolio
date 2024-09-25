@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 function Footer() {
   return (
     <>
-      <div className="max-md:w-full bg-[#EDF2FC]">
+      <div className="max-lg:w-full bg-[#EDF2FC]">
         <div className="flex justify-center z-0 relative">
           <div className="absolute top-9">
             <motion.div
@@ -18,7 +18,7 @@ function Footer() {
                 delay: 1,
                 ease: "easeInOut",
               }}
-              className="text-[#606163] z-10 flex gap-7 justify-between w-full text-4xl"
+              className="text-[#606163] z-[9990] flex gap-7 justify-between w-full text-4xl"
             >
               <motion.div
                 className="mt-10 text-[#2e2e2e]"
@@ -76,14 +76,14 @@ function Footer() {
           </div>
 
           <motion.div
-            className="bg-[#EDF2FC]"
+            className="bg-[#edf2fc00] z-9998"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, ease: "easeIn" }}
           >
             <img
               src="./images/xhd.png"
-              className="max-sm:h-80 max-md:h-85 max-lg:h-77 max-xl:h-70 h-80"
+              className=" max-sm:h-96 max-md:h-85 max-lg:h-77 max-xl:h-77 h-96"
               alt=""
             />
           </motion.div>

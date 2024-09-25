@@ -3,6 +3,18 @@
 @tailwind utilities;
 
 ::selection {
-  background-color: #5b2828;
-  color: #ffffff;
+  background-color: #14141400;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(./fonts/Poppins/Poppins-Bold.ttf);
+}
+
+* {
+  font-family: "Poppins", sans-serif;
 }
