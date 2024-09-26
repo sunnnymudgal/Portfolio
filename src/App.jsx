@@ -26,10 +26,10 @@ function App() {
       <div className="w-100% flex h-40 bg-[#EDF2FC] items-center justify-center">
         <div className="h-[1px] w-[80%] bg-[#5c570b8e]"></div>
       </div>
-      <Projects />
+{/*       <Projects />
       <div className="w-100% flex h-40 bg-[#EDF2FC] items-center justify-center">
         <div className="h-[1px] w-[80%] bg-[#5c570b8e]"></div>
-      </div>
+      </div> */}
       <Bottom />
       <div className="fixed top-24 right-1">
         <SocialLinks />
