@@ -20,10 +20,10 @@ function Main() {
             problems into elegant solutions and delivering exceptional user
             experiences
           </div>
-          <div className=" hover:scale-90 transform duration-200 ease-out c3 cursor-pointer flex items-center justify-center lg:text-xl md:text-lg sm:text-sm text-xs font-mono tracking-widest bg-[#9c7301] w-fit py-1 pt-1
+          <button className=" hover:scale-90 transform duration-200 ease-out c3 cursor-pointer flex items-center justify-center lg:text-xl md:text-lg sm:text-sm text-xs font-mono tracking-widest bg-[#9c7301] w-fit py-1 pt-1
             px-3 rounded-md text-[#EDF2FC] mt-10">
             DOWNLOAD RESUME
-          </div>
+          </button>
         </div>
         <Footer />
       </div>
