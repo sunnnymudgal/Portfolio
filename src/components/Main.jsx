@@ -22,7 +22,7 @@ function Main() {
           </div>
           <button className=" hover:scale-90 transform duration-200 ease-out c3 cursor-pointer flex items-center justify-center lg:text-xl md:text-lg text-sm font-mono tracking-widest bg-[#9c7301] w-fit py-1 pt-1
             px-3 rounded-md text-[#EDF2FC] mt-10">
-            <a href="https://drive.google.com/file/d/1EMmmrHFMvYqtZb9ew8DblETDK52Vc-iQ/view?usp=sharing">RESUME</a>
+            <a href="https://drive.google.com/file/d/1rPNmeQSjUoR8R3uF5DMKJZPcFSbHhtI5/view?usp=sharing">RESUME</a>
           </button>
         </div>
         <Footer />
